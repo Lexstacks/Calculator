@@ -1,0 +1,253 @@
+public class Calculator extends JFrame implements ActionListener { //inheritance. has all properties of JFrame
+	
+	JPanel displayScreenJPanel; //This will contain the screen for the calculator results
+	JTextField resultsField;
+	JButton cancelB;// clear
+	JButton parenB;
+	JButton percentB;
+	JButton divisionB;
+	JButton multiplyB;
+	JButton subtractB;//used for negative aswell
+	JButton addB;
+	JButton equalsB;
+	JButton pointB;
+	JButton plus_subB;
+	
+	JButton nineB;
+	JButton eightB;
+	JButton sevenB;
+	JButton sixB;
+	JButton fiveB;
+	JButton fourB;
+	JButton threeB;
+	JButton twoB;
+	JButton oneB;
+	JButton zeroB;
+	
+	JPanel buttonsPanel;
+	
+	
+	
+	public Calculator() {
+		this.setTitle("Calculator");
+		this.setSize(400,400);
+		
+		//The layout of the calculator
+		this.setLayout(new BorderLayout());
+		
+		
+		this.displayScreenJPanel = new JPanel();
+		this.buttonsPanel = new JPanel();
+		
+		/*
+		 * What is the default layout of a panel? Flowlayout
+		 */
+		
+		this.displayScreenJPanel.setLayout(new GridLayout(1,1)); //Custom layout for the panel because it is set to flow by default
+		this.resultsField = new JTextField();
+		this.displayScreenJPanel.add(resultsField);
+		this.add(this.displayScreenJPanel, BorderLayout.NORTH); //place panel to the north
+		
+		
+		this.buttonsPanel.setLayout(new GridLayout(5,4));
+		
+		cancelB = new JButton("C");
+		parenB = new JButton("()");
+		percentB = new JButton("%");
+		divisionB =new JButton("/");
+		multiplyB = new JButton("*");
+		subtractB = new JButton("-");//used for negative aswell
+		addB = new JButton("+");
+		equalsB = new JButton("=");
+		pointB = new JButton(".");
+		plus_subB = new JButton("+/-");
+		
+		nineB = new JButton("9");
+		eightB = new JButton("8");
+		sevenB = new JButton("7");
+		sixB = new JButton("6");
+		fiveB = new JButton("5");
+		fourB = new JButton("4");
+		threeB = new JButton("3");
+		twoB = new JButton("2");
+		oneB = new JButton("1");
+		zeroB = new JButton("0");
+		
+		
+		//First row
+		this.buttonsPanel.add(cancelB);
+		this.buttonsPanel.add(parenB);
+		this.buttonsPanel.add(percentB);
+		this.buttonsPanel.add(divisionB);
+		
+		//second row
+		this.buttonsPanel.add(sevenB);
+		this.buttonsPanel.add(eightB);
+		this.buttonsPanel.add(nineB);
+		this.buttonsPanel.add(multiplyB);
+		
+		//third row
+		this.buttonsPanel.add(fourB);
+		this.buttonsPanel.add(fiveB);
+		this.buttonsPanel.add(sixB);
+		this.buttonsPanel.add(subtractB);
+		
+		//the fourth row
+		this.buttonsPanel.add(oneB);
+		this.buttonsPanel.add(twoB);
+		this.buttonsPanel.add(threeB);
+		this.buttonsPanel.add(addB);
+		
+		
+		//the fifth row
+		this.buttonsPanel.add(plus_subB);
+		this.buttonsPanel.add(zeroB);
+		this.buttonsPanel.add(pointB);
+		this.buttonsPanel.add(equalsB);
+		
+		
+		
+	
+		//register the events on the button. 
+		cancelB.addActionListener(this);
+		parenB.addActionListener(this);
+		percentB.addActionListener(this);
+		divisionB.addActionListener(this);
+		sevenB.addActionListener(this);
+		eightB.addActionListener(this);
+		nineB.addActionListener(this);
+		multiplyB.addActionListener(this);
+		fourB.addActionListener(this);
+		fiveB.addActionListener(this);
+		sixB.addActionListener(this);
+		subtractB.addActionListener(this);
+		oneB.addActionListener(this);
+		twoB.addActionListener(this);
+		threeB.addActionListener(this);
+		addB.addActionListener(this);
+		plus_subB.addActionListener(this);
+		zeroB.addActionListener(this);
+		pointB.addActionListener(this);
+		equalsB.addActionListener(this);
+		
+		
+		
+		
+		
+		
+		this.add(this.buttonsPanel, BorderLayout.CENTER);
+		
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);		
+		
+	}
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Calculator cal = new Calculator(); //this is a custom JFrame object. We are adding properties to the inherited information.
+	
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) { //this determines what happens when something is done on the frame.
+		// TODO Auto-generated method stub
+		//System.out.println(e.getActionCommand()); 
+		
+		
+		JButton buttonClicked = (JButton)e.getSource();
+		String text = this.resultsField.getText();
+		
+		
+		if(buttonClicked == cancelB) { 
+			this.resultsField.setText("");
+		}
+		else if(buttonClicked == oneB) {
+			text = text + "1";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == twoB){
+			text = text + "2";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == threeB){
+		text = text + "3";
+		this.resultsField.setText(text);
+	}
+		else if(buttonClicked == fourB){
+		text = text + "4";
+		this.resultsField.setText(text);
+	}
+		else if(buttonClicked == fiveB){
+			text = text + "5";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == sixB){
+			text = text + "6";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == sevenB){
+			text = text + "7";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == eightB){
+			text = text + "8";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == nineB){
+			text = text + "9";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == zeroB){
+			text = text + "0";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == addB){
+			text = text + "+";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == subtractB){
+			text = text + "-";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == divisionB){
+			text = text + "/";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == multiplyB){
+			text = text + "*";
+			this.resultsField.setText(text);
+		}
+		else if(buttonClicked == equalsB) {
+			System.out.println(text);
+			
+			int indexOfAddOperation = text.indexOf("+");
+			System.out.println(indexOfAddOperation);
+		
+			if(indexOfAddOperation > 0) {
+				//String [] numbers = text.split("+");
+				String num1 = text.substring(0, indexOfAddOperation);
+				int n1 = Integer.parseInt(num1); 
+				
+				String num2 = text.substring(indexOfAddOperation +1);
+				int n2 = Integer.parseInt(num2);
+				
+				int total = n1 + n2;
+				
+				this.resultsField.setText("" + total);
+			}
+			
+			
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+
+}
